@@ -1,0 +1,43 @@
+<div>
+  <label>{{textLabel ? textLabel: 'Not Selected'}}</label>
+  <div class="form-group input-icon-right" style="margin-bottom: 0px">
+    <i class="glyphicon glyphicon-search"></i>
+    <input type="text"
+           class="form-control"
+           [(ngModel)]="filter"
+           placeholder="{{placeHolder ? placeHolder :'Search'}}">
+  </div>
+
+  <div class="btn-group buttons">
+
+    <button *ngIf="position==='right'" type="button" class="btn moveall btn-default" title="Move all" (click)="moveAll()"><i class="{{iconsDirection}}"></i> <i class="{{iconsDirection}}"></i></button>
+    <button *ngIf="position==='right'" type="button" class="btn move btn-default" style="margin-left: 0" title="Move selected" (click)="moveJustSelected()"><i class="{{iconsDirection}}"></i></button>
+
+    <button *ngIf="position==='left'" type="button" class="btn move btn-default" style="margin-left: 0" title="Move selected" (click)="moveJustSelected()"><i class="{{iconsDirection}}"></i></button>
+    <button *ngIf="position==='left'" type="button" class="btn moveall btn-default" title="Move all" (click)="moveAll()"><i class="{{iconsDirection}}"></i> <i class="{{iconsDirection}}"></i></button>
+
+  </div>
+
+  <div style="overflow: scroll; height: 192px" >
+    <table class="table table-bordered" >
+      <thead>
+      <tr>
+        <th *ngFor="let h of header" class="text-left" (click)="setFilterBy(h.key)" [ngClass]="{'filter-by': filterBy === h.key}">{{h.text}}</th>
+      </tr>
+      </thead>
+      <tbody class="text-left">
+      <tr *ngFor="let itemList of items | searchfilterDualPickList : filterBy : filter" (click)="itemList.isSelected = !itemList.isSelected" [ngClass]="{'dl-selected':itemList.isSelected}">
+        <td *ngFor="let l of header |  searchfilterDualPickList : 'hidden' : false " class="text-left">
+          <span *ngIf="!l.custom">{{itemList[l.key]}}</span>
+          <select *ngIf="l.select" class="form-control" name="{{'selectLeft'+'-'+index}}" id="selectLeft+'-'+index" [(ngModel)]="itemList[l.key]" style="height: inherit;" (ngChange)="transact()">
+            <option *ngFor="let item of l.select.list" value="{{item.id}}">{{item.text}}</option>
+          </select>
+          <input *ngIf="l.checkbox" type="checkbox" [(ngModel)]="itemList[l.key]" (change)="transact()">
+          <button *ngIf="l.button" class="btn btn-default" (click)="l.button.onClick(itemList)">{{l.text}}</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
