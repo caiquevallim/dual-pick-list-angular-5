@@ -1,5 +1,9 @@
 <div class="bootstrap-duallistbox-container">
     <div class="col-md-6">
-        <app-pick-list [position]="" [textLabel]="" [list]="" [placeHolder]="" [headerConfig]="" (onTransaction)=""></app-pick-list>
+        <app-pick-list [position]="'right'" [textLabel]="textKeyLeftList" [list]="itemsLeft" [placeHolder]="placeHolder" [headerConfig]="headerLeft" (onTransaction)="getTransactionFromLeft($event)"></app-pick-list>
     </div>
+    <div class="box2 col-md-6">
+        <app-pick-list [position]="'left'" [textLabel]="textKeyRightList" [list]="itemsRight" [placeHolder]="placeHolder" [headerConfig]="headerRight" (onTransaction)="getTransactionFromRight($event)"></app-pick-list>
+    </div>
+
 </div>
