@@ -3,6 +3,7 @@ import {DualPickListPipe} from "./pipe/dual-pick-list.pipe";
 import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {PickListComponent} from "./pick-list.component";
+import {DualPickListComponent} from "./dual-pick-list.component";
 
 @NgModule({
     imports: [
@@ -11,10 +12,12 @@ import {PickListComponent} from "./pick-list.component";
     ],
     declarations: [
         PickListComponent,
-        DualPickListPipe
+        DualPickListPipe,
+        DualPickListComponent
 
     ],
     exports:[
+        DualPickListComponent,
         PickListComponent,
         DualPickListPipe
     ]
