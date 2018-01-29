@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import * as _ from 'lodash';
-import {isNullOrUndefined} from "util";
+import {isNullOrUndefined} from 'util';
 
 @Component({
     selector: 'app-dual-pick-list',
@@ -68,12 +67,12 @@ export class DualPickListComponent {
 
     }
     getTransactionFromLeft(data){
-        this.itemsRight = _.concat(this.itemsRight, data.toMove).map(i=>{return{...i, isSelected:false, left:false, right:true}});
+        this.itemsRight = this.itemsRight.concat(data.toMove).map(i=>{return{...i, isSelected:false, left:false, right:true}});
         this.itemsLeft = data.notMove.map(it=>it);
         this.dispatchTransaction();
     }
     getTransactionFromRight(data){
-        this.itemsLeft = _.concat(this.itemsLeft, data.toMove).map(i=>{return{...i, isSelected:false, left:true, right:false}});
+        this.itemsLeft = this.itemsLeft.concat(data.toMove).map(i=>{return{...i, isSelected:false, left:true, right:false}});
         this.itemsRight = data.notMove.map(it=>it);
         this.dispatchTransaction();
 
