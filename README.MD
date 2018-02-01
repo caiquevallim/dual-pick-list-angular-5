@@ -5,7 +5,7 @@
 
 ## Demo
 
-In Maintenance
+<a href="https://github.com/caiquevallim/dual-pick-list-ng-heroes">https://github.com/caiquevallim/dual-pick-list-ng-heroes</a>
 
 <img src="dual-pick-list-img.png" width="1080" hspace="12"/>
 
@@ -83,7 +83,7 @@ You're going to need to include in your HTML 5 file the following statment:
     * `YourCustomHeaderModel`
         * property `left : Array<HeaderDualPickListModel>`
         * property `right : Array<HeaderDualPickListModel>`
-        
+
     * `HeaderDualPickListModel`
         * property `text : String`. Name of the column.
         * property `key : String` This property should contain the name that you have been past on `Item.fieldOfYourInterest` property above
