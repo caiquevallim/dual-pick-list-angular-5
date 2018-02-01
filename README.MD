@@ -80,6 +80,10 @@ You're going to need to include in your HTML 5 file the following statment:
         * property `fieldOfYourInterest` : For example: `cdClient`, `descClient` or any other that you will need.
         * constructor you will have to get a this.super() in this model to give some value for left and right from ItemDualPickListModel.
 
+    * `YourCustomHeaderModel`
+        * property `left : Array<HeaderDualPickListModel>`
+        * property `right : Array<HeaderDualPickListModel>`
+        
     * `HeaderDualPickListModel`
         * property `text : String`. Name of the column.
         * property `key : String` This property should contain the name that you have been past on `Item.fieldOfYourInterest` property above
